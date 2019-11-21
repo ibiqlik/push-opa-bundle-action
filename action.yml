@@ -1,0 +1,24 @@
+name: 'Push OPA policy bundle to a registry'
+description: 'Package and push OPA bundles to a public or private registry'
+author: 'ibiqlik'
+
+inputs:
+  registry:
+    description: "OCI Registry to push Bundles to. Example: myregistry.azurecr.io"
+    required: true
+  bundle_name:
+    description: "Bundle name. Example: mypolicy"
+    required: true
+  tag:
+    description: "Tag or version of Bundle. Example: 0.0.1, bfa3b26"
+    required: true
+  tag_latest:
+    description: "Bool true|false; Tag and push the bundle as lastest along with specific tag"
+    default: "true"
+  path:
+    description: "Path to policy folder or file that are to be bundled"
+    default: "policy"
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
