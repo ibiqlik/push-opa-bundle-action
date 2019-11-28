@@ -21,4 +21,10 @@ inputs:
 
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'docker://ilirbekteshi/push-opa-bundle-action'
+  args:
+    - ${{ inputs.registry }}
+    - ${{ inputs.bundle_name }}
+    - ${{ inputs.tag }}
+    - ${{ inputs.tag_latest }}
+    - ${{ inputs.path }}
